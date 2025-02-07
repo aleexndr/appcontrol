@@ -1,1 +1,1 @@
-web:python manage.py collectstatic && gunicorn appcontrol.wsgi
+web: python manage.py collectstatic && gunicorn appcontrol.wsgi
