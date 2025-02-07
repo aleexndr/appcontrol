@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+body{
+  background-color: #e8e8e8;
+  font-family: 'Rubik';
+}
+
+.seccion-principal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-container{
+    position: relative;
+  }
+
+  .menu-btn{
+    color: #11101d;
+    position: relative;
+    font-size: 22px;
+    margin: 0px 20px;
+    padding: 5px;
+    cursor: pointer;
+   }
+  
+  
+  .side-bar{
+   background: #111720;
+   width: 250px;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: -100%;
+   overflow-y: auto;
+   transition: 0.6s ease;
+   z-index: 20;
+  }
+  
+  .side-bar.active{
+   left: 0;
+  }
+  
+  .side-bar .menu{
+   width: 100%;
+   margin-top: 80px;
+  }
+  
+  .side-bar::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .side-bar .menu .item{
+   position: relative;
+   cursor: pointer;
+  }
+  
+  .side-bar .menu .item a{
+   color: #fff;
+   font-size: 16px;
+   text-decoration: none;
+   display: block;
+   padding: 5px 30px;
+   line-height: 50px;
+  }
+  
+  .side-bar .menu .item a:hover{
+    border-radius: 0px;
+   /* background: #26252d; */
+   background: #292f38;
+   transition: 0.3s ease;
+  }
+  
+  .side-bar .menu .item i{
+   margin-right: 15px;
+   font-size: 20px;
+  }
+  
+  .side-bar .menu .item a .arrow{
+   position: absolute;
+   right: 0;
+   margin: 20px;
+   transition: 0.3s ease;
+  }
+  
+  .side-bar .menu .item .sub-menu a .arrow2{
+   position: absolute;
+   right: 0;
+   margin: 20px;
+   transition: 0.3s ease;
+  }
+  
+  .side-bar .menu .item .sub-menu{
+    background: rgba(255, 255, 255,0.1);
+    display: none;
+   }
+  
+   .side-bar .menu .item .sub-menu.show{
+    display: block;
+   }
+  
+  .side-bar .menu .item .sub-menu .sub-menu2{
+    background: rgba(29, 27, 49, 0.7);
+    display: none;
+  }
+  
+  .side-bar .menu .item .sub-menu .sub-menu2.show2{
+    display: block;
+  }
+   
+   .side-bar .menu .item .sub-menu a{
+    padding-left: 80px;
+   }
+   
+   /* .rotate{
+    transform: rotate(180deg);
+   } */
+  
+  .close-btn{
+   position: absolute;
+   padding: 5px;
+   color: #fff;
+   font-size: 22px;
+   right: 0;
+   margin: 15px;
+   cursor: pointer;
+  }
+  
+  @media (max-width: 900px){
+   .main h1{
+     font-size: 40px;
+     line-height: 60px;
+   }
+  }
+
+
+
+  /* Contenedor formularios */
+  .titulo{
+    text-align: center;
+    padding: 40px 0px 0px 0px;
+  }
+
+  .separacion{
+    padding: 5px 0px;
+    width: 75%;
+  }
+
+  .content-forms{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .subcontent-forms{
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+  }
+
+  .form-floating{
+    width: 70%;
+  }
+
+
+
+  /* Estilos para boton guardar */
+.pushable {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: deeppink;
+  transition: filter 250ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: hsl(226, 25%, 69%);
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    hsl(141, 39%, 39%) 0%,
+    hsl(130, 39%, 49%) 8%,
+    hsl(136, 39%, 39%) 92%,
+    hsl(137, 39%, 29%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: hsl(129, 53%, 58%);
+  padding: 8px 32px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover {
+  filter: brightness(110%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
