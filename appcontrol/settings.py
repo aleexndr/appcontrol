@@ -81,9 +81,8 @@ WSGI_APPLICATION = 'appcontrol.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-
 DATABASES = {
-    'default': dj_database_url.config(default="postgresql://postgres:IppBwuQmOpZRmfhXYsDmAZqpzooazusA@postgres.railway.internal:5432/railway")
+    'default': dj_database_url.config(default=os.environ.get('Postgres.DATABASE_URL'), conn_max_age=1800)
 }
 
 
