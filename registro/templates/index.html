@@ -63,40 +63,33 @@
       <section class="seccion-principal">
         <h2 class="titulo">Registro de Alimentos</h2>
         <hr class="separacion">
-        <form method="POST" class="content-forms">
+        <form method="POST" action="{% url 'registrar_alimentos' %}" class="content-forms">
           {% csrf_token %}
           <div class="form-floating mb-3">
-            {{ form.nombre }}
-            <input type="text" class="form-control" id="floatingInput1" placeholder="">
+            <input type="text" class="form-control" name="nombre" id="floatingInput1" placeholder="">
             <label for="floatingInput1">Nombre</label>
           </div>
           <div class="form-floating mb-3">
-            {{ form.tipo }}
-            <input type="text" class="form-control" id="floatingInput2" placeholder="">
+            <input type="text" class="form-control" name="tipo" id="floatingInput2" placeholder="">
             <label for="floatingInput2">Tipo</label>
           </div>
           <div class="form-floating mb-3">
-            {{ form.cantidad }}
-            <input type="text" class="form-control" id="floatingInput3" placeholder="">
+            <input type="text" class="form-control" name="cantidad" id="floatingInput3" placeholder="">
             <label for="floatingInput3">Cantidad</label>
           </div>
           <div class="form-floating mb-3">
-            {{ form.costo }}
-            <input type="text" class="form-control" id="floatingInput4" placeholder="">
+            <input type="text" class="form-control" name="costo" id="floatingInput4" placeholder="">
             <label for="floatingInput4">Costo</label>
           </div>
-          <!-- <div class="input-group subcontent-forms">
-            <input required="" type="text" name="text" autocomplete="off" class="input">
-            <label class="user-label">Ejemplo</label>
-          </div> -->
           <div class="input-group mt-3 mb-3 subcontent-forms">
-            <!-- <button type="button" class="btn btn-success">Guardar</button> -->
             <button type="submit" class="pushable">
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front">Guardar</span>
             </button>
           </div>
+<!-- ---------------------------------------------------------------- -->
+          
         </form>
       </section>
     </div>
