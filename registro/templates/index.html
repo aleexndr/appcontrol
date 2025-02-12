@@ -60,15 +60,30 @@
           <i class="fas fa-bars" aria-hidden="true"></i>
         </div>
       </div>
+
       
       {% if messages %}
-        <div class="alert-container">
-          {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-              {{ message }}
-            </div>
-          {% endfor %}
-        </div>
+      {% for message in messages %}
+        {% if message.tags == 'success' %}
+          <div id="success_message" class="success-custom">
+            <i class="fa-solid fa-circle-check iconimg"></i>
+            {{ message }}
+            <span class="close-btn-not"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+        {% elif message.tags == 'error' %}
+          <div id="error_message" class="error-custom">
+            <i class="fa-solid fa-circle-xmark iconimg"></i>
+            {{ message }}
+            <span class="close-btn-not"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+        {% else %}
+          <div id="info_message" class="info-custom">
+            <i class="fa-solid fa-circle-info iconimg"></i>
+            {{ message }}
+            <span class="close-btn-not"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+        {% endif %}
+      {% endfor %}
       {% endif %}
 
       <section class="seccion-principal">
@@ -76,22 +91,37 @@
         <hr class="separacion">
         <form method="POST" action="{% url 'registrar_alimentos' %}" class="content-forms">
           {% csrf_token %}
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="nombre" id="floatingInput1" placeholder="">
             <label for="floatingInput1">Nombre</label>
           </div>
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="tipo" id="floatingInput2" placeholder="">
             <label for="floatingInput2">Tipo</label>
           </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="cantidad" id="floatingInput3" placeholder="">
-            <label for="floatingInput3">Cantidad</label>
+          
+          <div class="cantidad-section">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="cantidad" id="floatingInput3" placeholder="">
+              <label for="floatingInput3">Cantidad</label>
+            </div>
+
+            <select class="form-select form-select-lg cus mb-3" name="valor">
+              <option hidden>Valor</option>
+              <option value="1">Kilos</option>
+              <option value="2">Soles</option>
+              <option value="3">Unidades</option>
+              <option value="4">Gramos</option>
+            </select>
           </div>
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="costo" id="floatingInput4" placeholder="">
             <label for="floatingInput4">Costo</label>
           </div>
+
           <div class="input-group mt-3 mb-3 subcontent-forms">
             <button type="submit" class="pushable">
               <span class="shadow"></span>
@@ -99,7 +129,6 @@
               <span class="front">Guardar</span>
             </button>
           </div>
-<!-- ---------------------------------------------------------------- -->
           
         </form>
       </section>

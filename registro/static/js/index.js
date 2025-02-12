@@ -47,3 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const closeButtons = document.querySelectorAll('.close-btn-not');
+
+    closeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            button.parentElement.style.display = 'none';
+        });
+    });
+});
