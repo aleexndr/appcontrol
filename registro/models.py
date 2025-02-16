@@ -8,6 +8,7 @@ class Alimentos(models.Model):
     cantidad = models.DecimalField(max_digits=10, decimal_places=2)
     costo = models.DecimalField(max_digits=10, decimal_places=2)
     valor = models.CharField(max_length=50, null=True, blank=True)
+    preciokg = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.nombre

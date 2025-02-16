@@ -28,6 +28,7 @@ def registrar_alimentos(request):
         cantidad = request.POST.get('cantidad')
         costo = request.POST.get('costo')
         valor = request.POST.get('valor')
+        preciokg = request.POST.get('preciokg')
 
         try:
             if "/" in cantidad:
@@ -51,7 +52,7 @@ def registrar_alimentos(request):
             return redirect('index')
 
         if nombre and tipo and cantidad and costo and valor:
-            alimentos = Alimentos(nombre=nombre, tipo=tipo, cantidad=cantidad, costo=costo, valor=valor)
+            alimentos = Alimentos(nombre=nombre, tipo=tipo, cantidad=cantidad, costo=costo, valor=valor, preciokg=preciokg)
             alimentos.save()
             messages.success(request, "Guardado")
             return redirect('index')
