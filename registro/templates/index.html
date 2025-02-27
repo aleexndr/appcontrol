@@ -21,14 +21,14 @@
   
         <div class="menu">
           <div class="item">
-            <a href=""><i class="fa-solid fa-utensils"></i><span>ALIMENTOS</span></a>
+            <a href=""><i class="fa-brands fa-wpforms"></i><span>FORMULARIOS</span></a>
           </div>
           <div class="item">
-            <a href=""><i class="fa-solid fa-screwdriver-wrench"></i><span>SERVICIOS</span></a>
+            <a href=""><i class="fa-solid fa-list-ul"></i><span>REGISTROS</span></a>
           </div>
-          <div class="item">
+          <!-- <div class="item">
             <a href=""><i class="fa-solid fa-graduation-cap"></i><span>EDUCACION</span></a>
-          </div>
+          </div> -->
           <!-- <div class="item">
             <a class="sub-btn"><i class="fa-solid fa-user-group"></i><span>RR.HH</span><i class="fa-solid fa-angle-up arrow"></i></a>
             <div class="sub-menu">
@@ -61,6 +61,16 @@
         </div>
       </div>
 
+      <div class="form-sec">
+        <select id="seleccionarFormulario" class="form-select form-select-lg mb-3">
+          <option hidden value="">Selecciona un formulario...</option>
+          <option value="alimentos">Alimentos</option>
+          <option value="transporte">Transporte</option>
+          <option value="servicios">Servicios</option>
+          <!-- <option value="otro">Otro</option> -->
+        </select>
+      </div>
+
       
       {% if messages %}
       {% for message in messages %}
@@ -86,45 +96,48 @@
       {% endfor %}
       {% endif %}
 
-      <section class="seccion-principal">
-        <h2 class="titulo">Registro de Alimentos</h2>
+
+      <!-- FORMULARIO DE ALIMENTOS --> 
+
+      <section class="seccion-principal" data-formulario="alimentos">
+        <div class="title-form">
+          <button class="cerrar-formulario"><i class="fa-solid fa-arrow-left"></i></button>
+          <h2>Alimentos</h2>
+        </div>
         <hr class="separacion">
-        <form method="POST" action="{% url 'registrar_alimentos' %}" class="content-forms">
+        <form method="POST" class="content-forms" action="{% url 'registrar_alimentos' %}">
           {% csrf_token %}
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="nombre" id="floatingInput1" placeholder="">
-            <label for="floatingInput1">Nombre</label>
+            <input type="text" class="form-control" name="preciokg" id="floatingInput1" placeholder="">
+            <label for="floatingInput5">Precio por kg</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="tipo" id="floatingInput2" placeholder="">
-            <label for="floatingInput2">Tipo</label>
+            <input type="text" class="form-control" name="producto" id="floatingInput2" placeholder="">
+            <label for="floatingInput1">Producto</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="cantidad" id="floatingInput3" placeholder="">
+            <label for="floatingInput3">Cantidad</label>
           </div>
           
-          <div class="cantidad-section">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" name="cantidad" id="floatingInput3" placeholder="">
-              <label for="floatingInput3">Cantidad</label>
-            </div>
+          <!-- <div class="cantidad-section">
+            
 
             <select class="form-select form-select-lg cus mb-3" name="valor">
-              <option hidden>Valor</option>
-              <option value="1">Kilos</option>
-              <option value="2">Soles</option>
-              <option value="3">Unidades</option>
-              <option value="4">Gramos</option>
+              <option hidden value="">Elejir Valor</option>
+              <option value="kilos">Kilos</option>
+              <option value="soles">Soles</option>
+              <option value="unidades">Unidades</option>
+              <option value="gramos">Gramos</option>
             </select>
-          </div>
+          </div> -->
 
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="costo" id="floatingInput4" placeholder="">
             <label for="floatingInput4">Costo de compra</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="preciokg" id="floatingInput5" placeholder="">
-            <label for="floatingInput5">Precio por kg</label>
           </div>
 
           <div class="input-group mt-3 mb-3 subcontent-forms">
@@ -133,12 +146,96 @@
               <span class="edge"></span>
               <span class="front">Guardar</span>
             </button>
-          </div>
-          
+          </div> 
         </form>
       </section>
+
+
+
+      <!-- FORMULARIO DE TRANSPORTE -->
+
+      <section class="seccion-principal" data-formulario="transporte">
+        <div class="title-form">
+          <button class="cerrar-formulario"><i class="fa-solid fa-arrow-left"></i></button>
+          <h2>Transporte</h2>
+        </div>
+        <hr class="separacion">
+        <form method="POST" class="content-forms" action="{% url 'registrar_transporte' %}">
+          {% csrf_token %}
+
+          <select class="form-select mb-3" name="opcion_transporte">
+            <option hidden value="">Selecciona una opción</option>
+            <option value="Gas">Gas</option>
+            <option value="Combustible">Combustible</option>
+            <option value="Pasaje">Pasaje</option>
+          </select>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="tipo_transporte" id="floatingInput5" placeholder="">
+            <label for="floatingInput3">Tipo</label>
+          </div>
+          
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="cantidad_transporte" id="floatingInput6" placeholder="">
+            <label for="floatingInput3">Cantidad</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="costo_transporte" id="floatingInput7" placeholder="">
+            <label for="floatingInput4">Costo</label>
+          </div>
+
+          <div class="input-group mt-3 mb-3 subcontent-forms">
+            <button type="submit" class="pushable">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front">Guardar</span>
+            </button>
+          </div> 
+        </form>
+      </section>
+
+
+
+      <!-- FORMULARIO DE SERVICIOS -->
+
+      <section class="seccion-principal" data-formulario="servicios">
+        <div class="title-form">
+          <button class="cerrar-formulario"><i class="fa-solid fa-arrow-left"></i></button>
+          <h2>Servicios</h2>
+        </div>
+        <hr class="separacion">
+        <form method="POST" class="content-forms" action="{% url 'registrar_servicios' %}">
+          {% csrf_token %}
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="nombre_servicios" id="floatingInput8" placeholder="">
+            <label for="floatingInput3">Nombre</label>
+          </div>
+          
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="tipo_servicios" id="floatingInput9" placeholder="">
+            <label for="floatingInput3">Tipo</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="costo_servicios" id="floatingInput10" placeholder="">
+            <label for="floatingInput4">Costo</label>
+          </div>
+
+          <div class="input-group mt-3 mb-3 subcontent-forms">
+            <button type="submit" class="pushable">
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front">Guardar</span>
+            </button>
+          </div> 
+        </form>
+      </section>
+
     </div>
 
+  </div>
 
 
 
