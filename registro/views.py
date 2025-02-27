@@ -28,15 +28,16 @@ def registrar_alimentos(request):
         costo_alimentos = request.POST.get('costo')
         errores_alimentos = []
 
+        if not preciokg_alimentos:
+            preciokg_alimentos = 0.0
+        else:
+            try:
+                preciokg_alimentos = float(preciokg_alimentos)
+            except ValueError:
+                errores_alimentos.append("El precio por kg debe ser un número válido.")
+
         if not producto_alimentos.strip():
             errores_alimentos.append("El nombre del producto esta vacío.")
-
-        try:
-            preciokg_alimentos= float(preciokg_alimentos)
-            if preciokg_alimentos < 0:
-                errores_alimentos.append("El precio por kg es invalido")
-        except (ValueError, TypeError):
-            errores_alimentos.append("Precio por kg invalido. Debe ser un número")
         
         try:
             costo_alimentos = float(costo_alimentos)

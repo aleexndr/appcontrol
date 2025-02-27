@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Alimentos(models.Model):
-    preciokg_alimentos = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    preciokg_alimentos = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0.0)
     producto_alimentos = models.CharField(max_length=255, blank=True)
     cantidad_alimentos = models.CharField(max_length=255, blank=True)
     costo_alimentos = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
