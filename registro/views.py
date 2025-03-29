@@ -20,6 +20,10 @@ from datetime import date
 def index(request):
     return render (request, "index.html")
 
+def registros(request):
+    alimentos = Alimentos.objects.all()
+    return render (request, "registros.html", {"alimentos": alimentos})
+
 def registrar_alimentos(request):
     if request.method == 'POST':
         preciokg_alimentos = request.POST.get('preciokg')

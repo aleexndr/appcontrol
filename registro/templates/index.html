@@ -13,6 +13,7 @@
   
   <div class="page-container">
     
+      {% block sidebar %}
       <div class="side-bar">
 
         <div class="close-btn">
@@ -21,10 +22,10 @@
   
         <div class="menu">
           <div class="item">
-            <a href=""><i class="fa-brands fa-wpforms"></i><span>FORMULARIOS</span></a>
+            <a href="/"><i class="fa-brands fa-wpforms"></i><span>FORMULARIOS</span></a>
           </div>
           <div class="item">
-            <a href=""><i class="fa-solid fa-list-ul"></i><span>REGISTROS</span></a>
+            <a href="/registros"><i class="fa-solid fa-list-ul"></i><span>REGISTROS</span></a>
           </div>
           <!-- <div class="item">
             <a href=""><i class="fa-solid fa-graduation-cap"></i><span>EDUCACION</span></a>
@@ -52,6 +53,7 @@
           </div> -->
         </div>
       </div>
+      {% endblock %}
     </div>
 
     <div class="content-principal">
